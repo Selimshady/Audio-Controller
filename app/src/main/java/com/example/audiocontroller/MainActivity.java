@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorLight=sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         sensorAcc=sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        createBroadcast();
     }
 
     @Override
