@@ -117,15 +117,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Intent intent = new Intent();
         intent.setAction("com.example.audiocontroller");
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        if(moving) // hareketli ve telefon cepte
-        {
-            intent.putExtra("Type","MovingInPocket");
-            sendBroadcast(intent);
-        }
-        else if(underLight) // hareketsiz ve telefon masada
+        if(underLight && !moving) // hareketsiz ve telefon masada
         {
             Log.e("Data","Masanın üstünde");
             intent.putExtra("Type","NotMovingOnTable");
+            sendBroadcast(intent);
+        }
+        else if(moving) // hareketli ve telefon cepte
+        {
+            intent.putExtra("Type","MovingInPocket");
             sendBroadcast(intent);
         }
     }
